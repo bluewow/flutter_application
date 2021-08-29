@@ -39,6 +39,7 @@ class HomeScreen extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 28.0,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'Arvo',
                                 ),
                               ),
                             ],
@@ -71,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Image(
                       image: AssetImage('docker-logo.png'),
-                      height: 180.0,
+                      height: 200.0,
                     )
                   ],
                 ),
@@ -121,44 +122,47 @@ class HomeScreen extends StatelessWidget {
                               Icon(Icons.star,
                                   size: 20,
                                   color: Colors.deepOrangeAccent[400]),
-                              Icon(Icons.star,
+                              Icon(Icons.star_half,
                                   size: 20,
                                   color: Colors.deepOrangeAccent[400]),
                             ],
                           ),
                         ],
                       ),
-                      FloatingActionButton(
-                        child: Icon(Icons.add),
-                        onPressed: () {
-                          print('clicked');
-                        },
+                      Transform.scale(
+                        scale: 0.8,
+                        child: FloatingActionButton(
+                          elevation: 0.0,
+                          child: Icon(Icons.add),
+                          onPressed: () {
+                            print('clicked');
+                          },
+                        ),
                       )
                     ],
                   ),
                 ),
               ],
             ),
-            Divider(
-              color: Colors.grey,
-              thickness: 0.3,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Table(
+              border: TableBorder.all(
+                width: 1.0,
+                style: BorderStyle.solid,
+                color: Colors.grey.shade200,
+              ),
               children: [
-                TextBox('marketing expertise:', 'Tech expert'),
-                TextBox('experence', '8 years'),
-              ],
-            ),
-            Divider(
-              color: Colors.grey,
-              thickness: 0.3,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TextBox('wored with', 'Jolt, Monday, Salesforce'),
-                TextBox('avg.increase in sales', '+146%'),
+                TableRow(
+                  children: [
+                    textBox('marketing expertise:', 'Tech expert'),
+                    textBox('experence', '8 years'),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    textBox('wored with', 'Jolt, Monday, Salesforce'),
+                    textBox('avg.increase in sales', '+146%'),
+                  ],
+                ),
               ],
             ),
           ],
@@ -167,19 +171,22 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Column TextBox(String text1, String text2) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          text1,
-          style: TextStyle(color: Color(0xFF1C454F), fontSize: 10.0),
-        ),
-        Text(
-          text2,
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ],
+  Padding textBox(String text1, String text2) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            text1,
+            style: TextStyle(color: Color(0xFF1C454F), fontSize: 10.0),
+          ),
+          Text(
+            text2,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }
