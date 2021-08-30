@@ -8,143 +8,182 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(36.0, 36, 36.0, 0),
-        child: Column(
+      appBar: AppBar(
+        elevation: 0.0,
+        iconTheme: IconThemeData(color: Colors.amber[900]),
+        backgroundColor: Color(0xFFF7F1E8),
+        title: Text(
+          'mayple',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 28.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Arvo',
+          ),
+        ),
+      ),
+      endDrawer: Drawer(
+        child: ListView(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(12.0),
-                bottomRight: Radius.circular(12.0),
-                topLeft: Radius.circular(18.0),
-                topRight: Radius.circular(18.0),
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/mission.png'),
               ),
-              child: Container(
-                padding: EdgeInsets.all(15.0),
+              otherAccountsPictures: [
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/docker-logo.png'),
+                  backgroundColor: Color(0xFFF7F1E8),
+                ),
+              ],
+              accountName: Text(
+                'hong-gil-dong',
+                style: TextStyle(color: Colors.black),
+              ),
+              accountEmail: Text(
+                'xxx@gmail.com',
+                style: TextStyle(color: Colors.black),
+              ),
+              onDetailsPressed: () {
+                print('test');
+              },
+              decoration: BoxDecoration(
                 color: Color(0xFFF7F1E8),
-                child: Column(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40.0),
+                  bottomRight: Radius.circular(40.0),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.home,
+                color: Colors.grey[850],
+              ),
+              title: Text('Home'),
+              onTap: () {
+                print('Q&A is clicked');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.settings,
+                color: Colors.grey[850],
+              ),
+              title: Text('Setting'),
+              onTap: () {
+                print('Q&A is clicked');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.question_answer,
+                color: Colors.grey[850],
+              ),
+              title: Text('Q&A'),
+              onTap: () {
+                print('Q&A is clicked');
+              },
+              trailing: Icon(Icons.add),
+            ),
+          ],
+        ),
+      ),
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(15.0),
+            color: Color(0xFFF7F1E8),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 12.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    'Find your industry\'s top vetted marketing experts',
+                    style: TextStyle(
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Image(
+                  image: AssetImage('docker-logo.png'),
+                  height: 200.0,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 12.0,
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(28.0, 16.0, 28.0, 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.account_box,
-                                color: Colors.deepOrangeAccent[400],
-                              ),
-                              Text(
-                                'mayple',
-                                style: TextStyle(
-                                  fontSize: 28.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Arvo',
-                                ),
-                              ),
-                            ],
+                        Text(
+                          'Stefan Garlson',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        IconButton(
-                          onPressed: () {
-                            print('action');
-                          },
-                          icon: Icon(
-                            Icons.menu,
-                            size: 28.0,
-                            color: Colors.deepOrangeAccent[400],
-                          ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              '4.8',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 12.0,
+                            ),
+                            Icon(Icons.star,
+                                size: 20, color: Colors.deepOrangeAccent[400]),
+                            Icon(Icons.star,
+                                size: 20, color: Colors.deepOrangeAccent[400]),
+                            Icon(Icons.star,
+                                size: 20, color: Colors.deepOrangeAccent[400]),
+                            Icon(Icons.star,
+                                size: 20, color: Colors.deepOrangeAccent[400]),
+                            Icon(Icons.star_half,
+                                size: 20, color: Colors.deepOrangeAccent[400]),
+                          ],
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 12.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        'Find your industry\'s top vetted marketing experts',
-                        style: TextStyle(
-                          fontSize: 28.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    Transform.scale(
+                      scale: 0.8,
+                      child: FloatingActionButton(
+                        elevation: 0.0,
+                        child: Icon(Icons.add),
+                        onPressed: () {
+                          print('clicked');
+                        },
                       ),
-                    ),
-                    Image(
-                      image: AssetImage('docker-logo.png'),
-                      height: 200.0,
                     )
                   ],
                 ),
               ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(28.0, 16.0, 28.0, 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Stefan Garlson',
-                            style: TextStyle(
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8.0,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                '4.8',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 12.0,
-                              ),
-                              Icon(Icons.star,
-                                  size: 20,
-                                  color: Colors.deepOrangeAccent[400]),
-                              Icon(Icons.star,
-                                  size: 20,
-                                  color: Colors.deepOrangeAccent[400]),
-                              Icon(Icons.star,
-                                  size: 20,
-                                  color: Colors.deepOrangeAccent[400]),
-                              Icon(Icons.star,
-                                  size: 20,
-                                  color: Colors.deepOrangeAccent[400]),
-                              Icon(Icons.star_half,
-                                  size: 20,
-                                  color: Colors.deepOrangeAccent[400]),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Transform.scale(
-                        scale: 0.8,
-                        child: FloatingActionButton(
-                          elevation: 0.0,
-                          child: Icon(Icons.add),
-                          onPressed: () {
-                            print('clicked');
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Table(
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Table(
               border: TableBorder.all(
                 width: 1.0,
                 style: BorderStyle.solid,
@@ -165,8 +204,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
