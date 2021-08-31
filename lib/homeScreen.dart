@@ -168,11 +168,18 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Transform.scale(
                       scale: 0.8,
-                      child: FloatingActionButton(
-                        elevation: 0.0,
-                        child: Icon(Icons.add),
-                        onPressed: () {
-                          print('clicked');
+                      child: Builder(
+                        builder: (ctx) {
+                          return FloatingActionButton(
+                            elevation: 0.0,
+                            child: Icon(Icons.add),
+                            onPressed: () {
+                              ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
+                                content: Text('hello'),
+                              ));
+                              print('clicked');
+                            },
+                          );
                         },
                       ),
                     )
