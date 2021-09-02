@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application/SecondScreen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -179,6 +180,24 @@ class HomeScreen extends StatelessWidget {
                           builder: (ctx) {
                             return FloatingActionButton(
                               elevation: 0.0,
+                              child: Icon(Icons.navigate_next),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SecondScreen(),
+                                    ));
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                      Transform.scale(
+                        scale: 0.8,
+                        child: Builder(
+                          builder: (ctx) {
+                            return FloatingActionButton(
+                              elevation: 0.0,
                               child: Icon(Icons.add),
                               onPressed: () {
                                 ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
@@ -200,7 +219,7 @@ class HomeScreen extends StatelessWidget {
                                 toastLength: Toast.LENGTH_SHORT,
                                 gravity: ToastGravity.CENTER,
                                 timeInSecForIosWeb: 1,
-                                backgroundColor: Colors.blue,
+                                backgroundColor: Colors.red,
                                 textColor: Colors.white,
                                 fontSize: 16.0,
                               );
