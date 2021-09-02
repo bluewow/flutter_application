@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/SecondScreen.dart';
 
 import 'homeScreen.dart';
 
@@ -11,7 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'mission',
-      home: HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/2': (context) => SecondScreen(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }

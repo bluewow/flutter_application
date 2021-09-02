@@ -182,11 +182,7 @@ class HomeScreen extends StatelessWidget {
                               elevation: 0.0,
                               child: Icon(Icons.navigate_next),
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SecondScreen(),
-                                    ));
+                                Navigator.pushNamed(context, '/2');
                               },
                             );
                           },
